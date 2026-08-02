@@ -110,8 +110,7 @@ without any attack-specific code path.
 ```bash
 TOKEN=$(curl -s -X POST localhost:3000/auth/login \
   -H 'Content-Type: application/json' \
-  -d '{"username":"agent1","password":"agent123"}' | python3 -c "import json,sys;print(json.load(sys.stdin)['data']['token'])")
-
+  -d '{"username":"agent1","password":"agent123"}' | python3 -c "import json,sys;print(json.load(sys.stdin)['data']['token'])") 
 curl -s -X POST localhost:3000/tickets/tkt_9001/triage -H "Authorization: Bearer $TOKEN"
 curl -s -X POST localhost:3000/tickets/tkt_9001/draft-reply -H "Authorization: Bearer $TOKEN"
 
